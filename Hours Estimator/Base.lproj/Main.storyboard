@@ -94,13 +94,14 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Pick Tasks" id="etR-mb-4kf">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="qRQ-FR-gYM">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" id="qRQ-FR-gYM">
                             <connections>
                                 <action selector="didTapNext:" destination="BYZ-38-t0r" id="QqM-BV-4n7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="nextButton" destination="qRQ-FR-gYM" id="Sbw-HC-OFp"/>
                         <outlet property="tableView" destination="7Ng-ry-Ej6" id="xgQ-GF-d7u"/>
                     </connections>
                 </viewController>

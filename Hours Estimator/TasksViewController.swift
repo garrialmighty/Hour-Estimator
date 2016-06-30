@@ -11,6 +11,7 @@ import UIKit
 final class TasksViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nextButton: UIBarButtonItem!
     
     let viewModel = [["Planning": ["Inception Deck", "Market Research", "Stakeholder Interview"]],
                      ["Design": ["Wireframing", "Mockups", "Flow User Testing", "Style Guide", "Brand Analysis"]],
@@ -65,6 +66,10 @@ extension TasksViewController: UITableViewDataSource {
 extension TasksViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.viewModel[section].keys.first
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        self.nextButton.enabled = tableView.indexPathsForSelectedRows?.count > 0
     }
 }
 
