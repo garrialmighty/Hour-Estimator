@@ -68,6 +68,10 @@ extension TasksViewController: UITableViewDelegate {
         return self.viewModel[section].keys.first
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.nextButton.enabled = true
+    }
+    
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         self.nextButton.enabled = tableView.indexPathsForSelectedRows?.count > 0
     }
