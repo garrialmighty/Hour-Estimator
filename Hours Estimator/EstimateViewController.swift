@@ -11,13 +11,17 @@ import UIKit
 final class EstimateViewController: UIViewController {
 
     private let scrollContentView = UIView()
-    private var viewModel = [String]()
+    private let viewModel: [String]!
     private var hourTextFields = [UITextField]()
     private var rateTextFields = [UITextField]()
     
-    convenience init(tasks: [String]) {
-        self.init(nibName: nil, bundle: nil)
+    init(tasks: [String]) {
         self.viewModel = tasks
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
