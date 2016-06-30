@@ -10,8 +10,10 @@ import UIKit
 
 final class EstimateViewController: UIViewController {
 
-    let scrollContentView = UIView()
-    var viewModel = [String]()
+    private let scrollContentView = UIView()
+    private var viewModel = [String]()
+    private var hourTextFields = [UITextField]()
+    private var rateTextFields = [UITextField]()
     
     convenience init(tasks: [String]) {
         self.init(nibName: nil, bundle: nil)

@@ -13,7 +13,7 @@ final class TasksViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
-    let viewModel = [["Planning": ["Inception Deck", "Market Research", "Stakeholder Interview"]],
+    private let viewModel = [["Planning": ["Inception Deck", "Market Research", "Stakeholder Interview"]],
                      ["Design": ["Wireframing", "Mockups", "Flow User Testing", "Style Guide", "Brand Analysis"]],
                      ["Development": ["Setup and Scaffolding"]]]
     
