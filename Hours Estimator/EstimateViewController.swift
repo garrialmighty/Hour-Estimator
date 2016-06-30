@@ -53,6 +53,9 @@ final class EstimateViewController: UIViewController {
             self.scrollContentView.centerYAnchor.constraintEqualToAnchor(scrollView.centerYAnchor)
             ])
         
+        let calculateButton = UIBarButtonItem(title: "Calculate", style: .Plain, target: self, action: #selector(EstimateViewController.didTapCalculate))
+        self.navigationItem.rightBarButtonItem = calculateButton
+        
         self.renderFields()
     }
 
@@ -111,10 +114,30 @@ final class EstimateViewController: UIViewController {
             
             // keep track of variables
             lastField = hoursTextField
+            self.hourTextFields.append(hoursTextField)
+            self.rateTextFields.append(rateTextField)
         }
         
         lastField?.bottomAnchor.constraintEqualToAnchor(self.scrollContentView.bottomAnchor, constant: 250.0)
     }
+    
+    @objc private func didTapCalculate() {
+        var totalHours = 0.0
+        var totalPrice = 0.0
+        
+        for index in 0..<self.hourTextFields.count {
+            if let hourString = self.hourTextFields[index].text,
+                let rateString = self.rateTextFields[index].text,
+                let hour = Double(hourString),
+                let rate = Double(rateString) {
+                totalHours += hour
+                totalPrice += hour * rate
+            } else {
+                // handle error
+            }
         }
+        
+        let totalViewController = TotalViewController(totalHours: totalHours, totalPrice: totalPrice)
+        self.navigationController?.pushViewController(totalViewController, animated: true)
     }
 }
