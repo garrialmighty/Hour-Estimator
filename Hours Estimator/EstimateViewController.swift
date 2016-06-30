@@ -63,7 +63,7 @@ final class EstimateViewController: UIViewController {
             taskLabel.numberOfLines = 0
             taskLabel.translatesAutoresizingMaskIntoConstraints = false
             self.scrollContentView.addSubview(taskLabel)
-            taskLabel.leadingAnchor.constraintEqualToAnchor(self.scrollContentView.leadingAnchor, constant: 15.0).active = true
+            taskLabel.leadingAnchor.constraintEqualToAnchor(self.scrollContentView.leadingAnchor, constant: 5.0).active = true
             
             if let lastField = lastField {
                 taskLabel.topAnchor.constraintEqualToAnchor(lastField.bottomAnchor, constant: 10.0).active = true
@@ -76,6 +76,8 @@ final class EstimateViewController: UIViewController {
             let hoursTextField = UITextField()
             hoursTextField.placeholder = "Hours"
             hoursTextField.keyboardType = .DecimalPad
+            hoursTextField.borderStyle = .RoundedRect
+            hoursTextField.font = .systemFontOfSize(12.0)
             hoursTextField.translatesAutoresizingMaskIntoConstraints = false
             self.scrollContentView.addSubview(hoursTextField)
             NSLayoutConstraint.activateConstraints([
@@ -86,12 +88,14 @@ final class EstimateViewController: UIViewController {
             let rateTextField = UITextField()
             rateTextField.placeholder = "Price per hour"
             rateTextField.keyboardType = .DecimalPad
+            rateTextField.borderStyle = .RoundedRect
+            rateTextField.font = .systemFontOfSize(12.0)
             rateTextField.translatesAutoresizingMaskIntoConstraints = false
             self.scrollContentView.addSubview(rateTextField)
             NSLayoutConstraint.activateConstraints([
                 rateTextField.centerYAnchor.constraintEqualToAnchor(taskLabel.centerYAnchor),
-                rateTextField.leadingAnchor.constraintEqualToAnchor(hoursTextField.trailingAnchor, constant: 10.0),
-                rateTextField.trailingAnchor.constraintEqualToAnchor(self.scrollContentView.trailingAnchor, constant: -10.0)
+                rateTextField.leadingAnchor.constraintEqualToAnchor(hoursTextField.trailingAnchor, constant: 5.0),
+                rateTextField.trailingAnchor.constraintEqualToAnchor(self.scrollContentView.trailingAnchor, constant: -5.0)
                 ])
             
             // make all fields have equal width
