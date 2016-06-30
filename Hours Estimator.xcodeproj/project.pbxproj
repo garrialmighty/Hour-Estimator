@@ -35,6 +35,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7326A1A81D251D3A0047BFAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		7326A1A91D251D420047BFAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				73D369F51D25172800AC10DC /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7326A1AA1D251D510047BFAD /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				73D369F31D25172800AC10DC /* TasksViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		7326A1AB1D251D570047BFAD /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Model";
+			sourceTree = "<group>";
+		};
 		73D369E51D25172800AC10DC = {
 			isa = PBXGroup;
 			children = (
@@ -55,8 +85,10 @@
 			isa = PBXGroup;
 			children = (
 				73D369F11D25172800AC10DC /* AppDelegate.swift */,
-				73D369F31D25172800AC10DC /* TasksViewController.swift */,
-				73D369F51D25172800AC10DC /* Main.storyboard */,
+				7326A1A81D251D3A0047BFAD /* Model */,
+				7326A1A91D251D420047BFAD /* View */,
+				7326A1AA1D251D510047BFAD /* View Controller */,
+				7326A1AB1D251D570047BFAD /* View Model */,
 				73D369F81D25172800AC10DC /* Assets.xcassets */,
 				73D369FA1D25172800AC10DC /* LaunchScreen.storyboard */,
 				73D369FD1D25172800AC10DC /* Info.plist */,
@@ -286,6 +318,7 @@
 				73D36A021D25172800AC10DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
