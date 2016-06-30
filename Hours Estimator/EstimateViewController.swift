@@ -28,6 +28,7 @@ final class EstimateViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = "Full Estimate"
         self.view.backgroundColor = .whiteColor()
         
         let scrollView = UIScrollView()
@@ -72,12 +73,10 @@ final class EstimateViewController: UIViewController {
             taskLabel.leadingAnchor.constraintEqualToAnchor(self.scrollContentView.leadingAnchor, constant: 5.0).active = true
             
             if let lastField = lastField {
-                taskLabel.topAnchor.constraintEqualToAnchor(lastField.bottomAnchor, constant: 10.0).active = true
+                taskLabel.topAnchor.constraintEqualToAnchor(lastField.bottomAnchor, constant: 20.0).active = true
             } else {
-                taskLabel.topAnchor.constraintEqualToAnchor(self.scrollContentView.topAnchor, constant: 10.0)
+                taskLabel.topAnchor.constraintEqualToAnchor(self.scrollContentView.topAnchor, constant: 20.0)
             }
-            
-            lastField = taskLabel
             
             let hoursTextField = UITextField()
             hoursTextField.placeholder = "Hours"
@@ -109,6 +108,13 @@ final class EstimateViewController: UIViewController {
                 taskLabel.widthAnchor.constraintEqualToAnchor(hoursTextField.widthAnchor),
                 hoursTextField.widthAnchor.constraintEqualToAnchor(rateTextField.widthAnchor)
                 ])
+            
+            // keep track of variables
+            lastField = hoursTextField
+        }
+        
+        lastField?.bottomAnchor.constraintEqualToAnchor(self.scrollContentView.bottomAnchor, constant: 250.0)
+    }
         }
     }
 }
