@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7326A1AD1D251D880047BFAD /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326A1AC1D251D880047BFAD /* TaskTableViewCell.swift */; };
 		7326A1AF1D25489A0047BFAD /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326A1AE1D25489A0047BFAD /* EstimateViewController.swift */; };
+		7326A1B11D257B040047BFAD /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7326A1B01D257B040047BFAD /* TotalViewController.swift */; };
 		73D369F21D25172800AC10DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D369F11D25172800AC10DC /* AppDelegate.swift */; };
 		73D369F41D25172800AC10DC /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D369F31D25172800AC10DC /* TasksViewController.swift */; };
 		73D369F71D25172800AC10DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73D369F51D25172800AC10DC /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		7326A1AC1D251D880047BFAD /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		7326A1AE1D25489A0047BFAD /* EstimateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
+		7326A1B01D257B040047BFAD /* TotalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
 		73D369EE1D25172800AC10DC /* Hours Estimator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hours Estimator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D369F11D25172800AC10DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73D369F31D25172800AC10DC /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				73D369F31D25172800AC10DC /* TasksViewController.swift */,
 				7326A1AE1D25489A0047BFAD /* EstimateViewController.swift */,
+				7326A1B01D257B040047BFAD /* TotalViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				73D369F41D25172800AC10DC /* TasksViewController.swift in Sources */,
 				73D369F21D25172800AC10DC /* AppDelegate.swift in Sources */,
 				7326A1AF1D25489A0047BFAD /* EstimateViewController.swift in Sources */,
+				7326A1B11D257B040047BFAD /* TotalViewController.swift in Sources */,
 				7326A1AD1D251D880047BFAD /* TaskTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
