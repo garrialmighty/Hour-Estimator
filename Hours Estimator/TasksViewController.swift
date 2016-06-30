@@ -28,7 +28,16 @@ final class TasksViewController: UIViewController {
     
     
     @IBAction func didTapNext(sender: AnyObject) {
-        print(self.tableView.indexPathsForSelectedRows)
+        if let selectedIndexPaths = self.tableView.indexPathsForSelectedRows {
+            var taskNames = [String]()
+            for indexPath in selectedIndexPaths {
+                guard let tasks = self.viewModel[indexPath.section].values.first else { continue }
+                taskNames.append(tasks[indexPath.item])
+            }
+            
+            let estimateViewController = EstimateViewController(tasks: taskNames)
+            self.navigationController?.pushViewController(estimateViewController, animated: true)
+        }
     }
 }
 
