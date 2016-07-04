@@ -37,6 +37,7 @@ final class TasksViewController: UIViewController {
             }
             
             let estimateViewController = EstimateViewController(tasks: taskNames)
+            estimateViewController.delegate = self
             self.navigationController?.pushViewController(estimateViewController, animated: true)
         }
     }
@@ -74,6 +75,20 @@ extension TasksViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         self.nextButton.enabled = tableView.indexPathsForSelectedRows?.count > 0
+    }
+}
+
+extension TasksViewController: TotalViewControllerDelegate {
+    func totalViewControllerWillReset(viewController: TotalViewController) {
+        guard let selectedIndexPaths = self.tableView.indexPathsForSelectedRows else { return }
+        
+        for indexpath in selectedIndexPaths {
+            self.tableView.deselectRowAtIndexPath(indexpath, animated: false)
+        }
+        
+        let firstIndexPath = NSIndexPath(forItem: 0, inSection: 0)
+        self.tableView.scrollToRowAtIndexPath(firstIndexPath, atScrollPosition: .Top, animated: false)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }
 

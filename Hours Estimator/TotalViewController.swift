@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol TotalViewControllerDelegate: class {
+    func totalViewControllerWillReset(viewController: TotalViewController)
+}
+
 final class TotalViewController: UIViewController {
 
     private let totalHours: Double!
     private let totalPrice: Double!
+    
+    weak var delegate: TotalViewControllerDelegate?
     
     init(totalHours: Double, totalPrice: Double) {
         self.totalHours = totalHours
@@ -108,10 +114,17 @@ final class TotalViewController: UIViewController {
         
         // make both content views have the same height
         hoursContentView.heightAnchor.constraintEqualToAnchor(priceContentView.heightAnchor).active = true
+        
+        let resetButton = UIBarButtonItem(title: "Reset", style: .Plain, target: self, action: #selector(TotalViewController.didTapReset))
+        self.navigationItem.rightBarButtonItem = resetButton
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc private func didTapReset() {
+        self.delegate?.totalViewControllerWillReset(self)
     }
 }

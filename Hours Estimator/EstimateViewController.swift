@@ -15,6 +15,8 @@ final class EstimateViewController: UIViewController {
     private var hourTextFields = [UITextField]()
     private var rateTextFields = [UITextField]()
     
+    weak var delegate: TotalViewControllerDelegate?
+    
     init(tasks: [String]) {
         self.viewModel = tasks
         super.init(nibName: nil, bundle: nil)
@@ -138,6 +140,7 @@ final class EstimateViewController: UIViewController {
         }
         
         let totalViewController = TotalViewController(totalHours: totalHours, totalPrice: totalPrice)
+        totalViewController.delegate = self.delegate
         self.navigationController?.pushViewController(totalViewController, animated: true)
     }
 }
