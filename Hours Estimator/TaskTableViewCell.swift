@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 final class TaskTableViewCell: UITableViewCell {
 
     @IBOutlet weak var taskLabel: UILabel!
+    @IBOutlet weak var arrowLabel: UILabel!
     @IBOutlet weak var addToEstimateView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.arrowLabel.font = .fontAwesomeOfSize(20)
+        self.arrowLabel.text = .fontAwesomeIconWithCode("fa-arrow-circle-right")
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

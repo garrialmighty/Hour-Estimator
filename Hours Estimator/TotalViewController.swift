@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 protocol TotalViewControllerDelegate: class {
     func totalViewControllerWillReset(viewController: TotalViewController)
@@ -43,12 +44,15 @@ final class TotalViewController: UIViewController {
             hoursContentView.trailingAnchor.constraintEqualToAnchor(self.view.trailingAnchor)
             ])
         
-        let clockImageView = UIImageView(image: UIImage(named: "clock"))
-        clockImageView.translatesAutoresizingMaskIntoConstraints = false
-        hoursContentView.addSubview(clockImageView)
+        let clockLabel = UILabel()
+        clockLabel.textColor = .whiteColor()
+        clockLabel.font = .fontAwesomeOfSize(120)
+        clockLabel.text = .fontAwesomeIconWithCode("fa-clock-o")
+        clockLabel.translatesAutoresizingMaskIntoConstraints = false
+        hoursContentView.addSubview(clockLabel)
         NSLayoutConstraint.activateConstraints([
-            clockImageView.centerYAnchor.constraintEqualToAnchor(hoursContentView.centerYAnchor),
-            clockImageView.leadingAnchor.constraintEqualToAnchor(hoursContentView.leadingAnchor, constant: 30.0)
+            clockLabel.centerYAnchor.constraintEqualToAnchor(hoursContentView.centerYAnchor),
+            clockLabel.leadingAnchor.constraintEqualToAnchor(hoursContentView.leadingAnchor, constant: 30.0)
             ])
         
         let totalHoursLabel = UILabel()
@@ -58,8 +62,8 @@ final class TotalViewController: UIViewController {
         totalHoursLabel.translatesAutoresizingMaskIntoConstraints = false
         hoursContentView.addSubview(totalHoursLabel)
         NSLayoutConstraint.activateConstraints([
-            totalHoursLabel.centerYAnchor.constraintEqualToAnchor(clockImageView.centerYAnchor),
-            totalHoursLabel.leadingAnchor.constraintEqualToAnchor(clockImageView.trailingAnchor, constant: 20.0)
+            totalHoursLabel.centerYAnchor.constraintEqualToAnchor(clockLabel.centerYAnchor),
+            totalHoursLabel.leadingAnchor.constraintEqualToAnchor(clockLabel.trailingAnchor, constant: 20.0)
             ])
         
         let hoursLabel = UILabel()
@@ -83,12 +87,15 @@ final class TotalViewController: UIViewController {
             priceContentView.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor)
             ])
         
-        let moneyImageView = UIImageView(image: UIImage(named: "money"))
-        moneyImageView.translatesAutoresizingMaskIntoConstraints = false
-        priceContentView.addSubview(moneyImageView)
+        let moneyLabel = UILabel()
+        moneyLabel.textColor = .whiteColor()
+        moneyLabel.font = .fontAwesomeOfSize(100)
+        moneyLabel.text = .fontAwesomeIconWithCode("fa-money")
+        moneyLabel.translatesAutoresizingMaskIntoConstraints = false
+        priceContentView.addSubview(moneyLabel)
         NSLayoutConstraint.activateConstraints([
-            moneyImageView.centerYAnchor.constraintEqualToAnchor(priceContentView.centerYAnchor),
-            moneyImageView.leadingAnchor.constraintEqualToAnchor(priceContentView.leadingAnchor, constant: 30.0)
+            moneyLabel.centerYAnchor.constraintEqualToAnchor(priceContentView.centerYAnchor),
+            moneyLabel.leadingAnchor.constraintEqualToAnchor(priceContentView.leadingAnchor, constant: 30.0)
             ])
         
         let totalPriceLabel = UILabel()
@@ -99,7 +106,7 @@ final class TotalViewController: UIViewController {
         priceContentView.addSubview(totalPriceLabel)
         NSLayoutConstraint.activateConstraints([
             totalPriceLabel.centerYAnchor.constraintEqualToAnchor(priceContentView.centerYAnchor),
-            totalPriceLabel.leadingAnchor.constraintEqualToAnchor(moneyImageView.trailingAnchor, constant: 20.0)
+            totalPriceLabel.leadingAnchor.constraintEqualToAnchor(moneyLabel.trailingAnchor, constant: 20.0)
             ])
         
         let priceLabel = UILabel()

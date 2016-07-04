@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Pick Tasks-->
@@ -38,21 +37,21 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SqL-GG-Lpq">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fa-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0av-kf-YqD">
                                                             <rect key="frame" x="352" y="2" width="23" height="23"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="SqL-GG-Lpq" secondAttribute="height" multiplier="1:1" id="iCr-P4-daa"/>
-                                                            </constraints>
-                                                        </imageView>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.0" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="SqL-GG-Lpq" firstAttribute="leading" secondItem="W36-z2-LYW" secondAttribute="trailing" constant="5" id="2t0-NX-ZII"/>
                                                         <constraint firstItem="W36-z2-LYW" firstAttribute="centerY" secondItem="4vT-e3-vve" secondAttribute="centerY" id="9Y7-6v-7kj"/>
+                                                        <constraint firstItem="0av-kf-YqD" firstAttribute="top" secondItem="4vT-e3-vve" secondAttribute="top" constant="2" id="BpP-jq-Met"/>
+                                                        <constraint firstAttribute="bottom" secondItem="0av-kf-YqD" secondAttribute="bottom" constant="2" id="DiZ-xc-BEY"/>
+                                                        <constraint firstItem="0av-kf-YqD" firstAttribute="leading" secondItem="W36-z2-LYW" secondAttribute="trailing" constant="5" id="EYC-uc-9hc"/>
                                                         <constraint firstAttribute="height" constant="27" id="Nmb-pj-QBe"/>
                                                         <constraint firstItem="W36-z2-LYW" firstAttribute="centerX" secondItem="4vT-e3-vve" secondAttribute="centerX" id="Tzj-gA-znE"/>
-                                                        <constraint firstItem="SqL-GG-Lpq" firstAttribute="top" secondItem="4vT-e3-vve" secondAttribute="top" constant="2" id="jDc-5e-Qqy"/>
-                                                        <constraint firstAttribute="bottom" secondItem="SqL-GG-Lpq" secondAttribute="bottom" constant="2" id="kHg-C7-MXR"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdu-Yz-Tbi">
@@ -74,6 +73,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addToEstimateView" destination="4vT-e3-vve" id="L3n-Kx-ggs"/>
+                                            <outlet property="arrowLabel" destination="0av-kf-YqD" id="qF4-bU-oPO"/>
                                             <outlet property="taskLabel" destination="Kdu-Yz-Tbi" id="biw-Ke-3p0"/>
                                         </connections>
                                     </tableViewCell>
@@ -107,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389" y="1137"/>
+            <point key="canvasLocation" x="1273" y="1117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BcI-EG-unM">
@@ -128,7 +128,4 @@
             <point key="canvasLocation" x="608" y="1137"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="arrowIcon" width="60" height="60"/>
-    </resources>
 </document>
