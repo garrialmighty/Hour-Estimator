@@ -124,6 +124,7 @@ final class TotalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Selector
     @objc private func didTapReset() {
         self.delegate?.totalViewControllerWillReset(self)
     }

@@ -67,6 +67,7 @@ final class EstimateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Private
     private func renderFields() {
         var lastField: UIView?
         
@@ -124,6 +125,7 @@ final class EstimateViewController: UIViewController {
         lastField?.bottomAnchor.constraintEqualToAnchor(self.scrollContentView.bottomAnchor, constant: 250.0)
     }
     
+    // MARK: Selector
     @objc private func didTapCalculate() {
         var totalHours = 0.0
         var totalPrice = 0.0

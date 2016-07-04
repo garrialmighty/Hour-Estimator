@@ -27,7 +27,7 @@ final class TasksViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // MARK: - IBActions
     @IBAction func didTapNext(sender: AnyObject) {
         if let selectedIndexPaths = self.tableView.indexPathsForSelectedRows {
             var taskNames = [String]()
@@ -43,6 +43,7 @@ final class TasksViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension TasksViewController: UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return self.viewModel.count
@@ -64,6 +65,7 @@ extension TasksViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension TasksViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.viewModel[section].keys.first
@@ -78,6 +80,7 @@ extension TasksViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - TotalViewControllerDelegate
 extension TasksViewController: TotalViewControllerDelegate {
     func totalViewControllerWillReset(viewController: TotalViewController) {
         guard let selectedIndexPaths = self.tableView.indexPathsForSelectedRows else { return }
