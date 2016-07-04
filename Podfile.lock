@@ -1,0 +1,15 @@
+PODS:
+  - FontAwesome.swift (0.7.3)
+  - TPKeyboardAvoiding (1.3)
+
+DEPENDENCIES:
+  - FontAwesome.swift
+  - TPKeyboardAvoiding
+
+SPEC CHECKSUMS:
+  FontAwesome.swift: f694fe0f667d6d3390b5919cdb0556a27b75d427
+  TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
+
+PODFILE CHECKSUM: 940d5b66616dc271d66103c0a12ed7b96da0e8b7
+
+COCOAPODS: 1.0.0
