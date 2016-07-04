@@ -131,15 +131,14 @@ final class EstimateViewController: UIViewController {
         var totalPrice = 0.0
         
         for index in 0..<self.hourTextFields.count {
-            if let hourString = self.hourTextFields[index].text,
+            guard let hourString = self.hourTextFields[index].text,
                 let rateString = self.rateTextFields[index].text,
                 let hour = Double(hourString),
-                let rate = Double(rateString) {
+                let rate = Double(rateString)
+                else { continue }
+            
                 totalHours += hour
                 totalPrice += hour * rate
-            } else {
-                // handle error
-            }
         }
         
         let totalViewController = TotalViewController(totalHours: totalHours, totalPrice: totalPrice)
