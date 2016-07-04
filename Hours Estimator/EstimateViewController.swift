@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TPKeyboardAvoiding
 
 final class EstimateViewController: UIViewController {
 
@@ -33,7 +34,7 @@ final class EstimateViewController: UIViewController {
         self.title = "Full Estimate"
         self.view.backgroundColor = .whiteColor()
         
-        let scrollView = UIScrollView()
+        let scrollView = TPKeyboardAvoidingScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(scrollView)
         NSLayoutConstraint.activateConstraints([
