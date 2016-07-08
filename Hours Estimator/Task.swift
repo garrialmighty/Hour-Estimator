@@ -10,10 +10,9 @@ import UIKit
 import RealmSwift
 
 class Task: Object {
-    dynamic var id = rand()
     dynamic var name = ""
     
     override static func primaryKey() -> String? {
-        return "id"
+        return "name"
     }
 }
