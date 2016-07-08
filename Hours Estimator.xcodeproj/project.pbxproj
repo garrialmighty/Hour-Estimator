@@ -76,10 +76,9 @@
 		7326A1AA1D251D510047BFAD /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				73D369F31D25172800AC10DC /* TasksViewController.swift */,
-				7326A1AE1D25489A0047BFAD /* EstimateViewController.swift */,
-				7326A1B01D257B040047BFAD /* TotalViewController.swift */,
-				73974F391D2F4EA400141588 /* AddTaskViewController.swift */,
+				738F7B9B1D2FF8E30047C24C /* Tasks */,
+				738F7B9C1D2FF8E80047C24C /* Estimate */,
+				738F7B9D1D2FF8ED0047C24C /* Total */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -89,6 +88,31 @@
 			children = (
 			);
 			name = "View Model";
+			sourceTree = "<group>";
+		};
+		738F7B9B1D2FF8E30047C24C /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				73D369F31D25172800AC10DC /* TasksViewController.swift */,
+				73974F391D2F4EA400141588 /* AddTaskViewController.swift */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		738F7B9C1D2FF8E80047C24C /* Estimate */ = {
+			isa = PBXGroup;
+			children = (
+				7326A1AE1D25489A0047BFAD /* EstimateViewController.swift */,
+			);
+			name = Estimate;
+			sourceTree = "<group>";
+		};
+		738F7B9D1D2FF8ED0047C24C /* Total */ = {
+			isa = PBXGroup;
+			children = (
+				7326A1B01D257B040047BFAD /* TotalViewController.swift */,
+			);
+			name = Total;
 			sourceTree = "<group>";
 		};
 		73D369E51D25172800AC10DC = {
