@@ -7,15 +7,14 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
 final class TasksViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var nextButton: UIBarButtonItem!
     
-    private let viewModel = [["Planning": ["Inception Deck", "Market Research", "Stakeholder Interview"]],
-                     ["Design": ["Wireframing", "Mockups", "Flow User Testing", "Style Guide", "Brand Analysis"]],
-                     ["Development": ["Setup and Scaffolding"]]]
+    private let viewModel = TasksViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +31,8 @@ final class TasksViewController: UIViewController {
         if let selectedIndexPaths = self.tableView.indexPathsForSelectedRows {
             var taskNames = [String]()
             for indexPath in selectedIndexPaths {
-                guard let tasks = self.viewModel[indexPath.section].values.first else { continue }
-                taskNames.append(tasks[indexPath.item])
+                guard let tasks = self.viewModel.tasks[indexPath.section].values.first else { continue }
+                taskNames.append(tasks[indexPath.item].name)
             }
             
             let estimateViewController = EstimateViewController(tasks: taskNames)
@@ -46,17 +45,17 @@ final class TasksViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension TasksViewController: UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return self.viewModel.count
+        return self.viewModel.tasks.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let tasks = self.viewModel[section].values.first else { return 0 }
+        guard let tasks = self.viewModel.tasks[section].values.first else { return 0 }
         return tasks.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("TaskCell", forIndexPath: indexPath) as? TaskTableViewCell,
-            let tasks = self.viewModel[indexPath.section].values.first
+            let tasks = self.viewModel.tasks[indexPath.section].values.first
             else { return TaskTableViewCell() }
         
         cell.taskLabel.text = tasks[indexPath.item]
@@ -68,7 +67,7 @@ extension TasksViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension TasksViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.viewModel[section].keys.first
+        return self.viewModel.tasks[section].keys.first
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
