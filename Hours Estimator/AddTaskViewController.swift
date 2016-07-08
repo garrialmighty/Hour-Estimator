@@ -138,6 +138,7 @@ final class AddTaskViewController: UIViewController {
             RealmUtility.sharedUtility.save(task)
             
             taskTextField.text = ""
+            addButton.enabled = false
             self.delegate?.addTaskViewController(self, didAddTask: task)
         }
     }
