@@ -15,7 +15,6 @@ final class RealmUtility: NSObject {
     
     func fetchAllTasks() -> [Task] {
         let realm = try! Realm()
-        print(realm.objects(Task))
         return realm.objects(Task).map{ $0 }
     }
     
