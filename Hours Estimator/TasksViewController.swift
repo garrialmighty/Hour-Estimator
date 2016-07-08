@@ -64,7 +64,29 @@ extension TasksViewController: UITableViewDataSource {
             let tasks = self.viewModel.tasks[indexPath.section].values.first
             else { return TaskTableViewCell() }
         
-        cell.taskLabel.text = tasks[indexPath.item]
+        cell.taskLabel.text = tasks[indexPath.item].name
+        
+        // add delete option for User Defined Tasks
+        if let sectionTitle = self.viewModel.tasks[indexPath.section].keys.first where sectionTitle == "User Defined" {
+            let delete = MGSwipeButton(title: "Delete", backgroundColor: .redColor())
+            
+            // implement delete functionality
+            delete.callback = { _ in
+                RealmUtility.sharedUtility.deleteTask(tasks[indexPath.item])
+                
+                // remove task
+                let sectionKey = self.viewModel.keyForSection(indexPath.section)
+                self.viewModel.tasks[indexPath.section][sectionKey]?.removeAtIndex(indexPath.item)
+                                
+                tableView.beginUpdates()
+                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                tableView.endUpdates()
+                
+                return true
+            }
+            
+            cell.rightButtons = [delete]
+        }
         
         return cell
     }
