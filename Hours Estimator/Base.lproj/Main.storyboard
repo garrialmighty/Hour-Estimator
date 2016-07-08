@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Pick Tasks-->
@@ -17,63 +18,41 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Ng-ry-Ej6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsMultipleSelection="YES" rowHeight="73" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Ng-ry-Ej6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="87" id="yj0-NV-QIb" customClass="TaskTableViewCell" customModule="Hours_Estimator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="87"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TaskCell" id="yj0-NV-QIb" customClass="TaskTableViewCell" customModule="Hours_Estimator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="73"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yj0-NV-QIb" id="hQm-mR-tBg">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vT-e3-vve">
-                                                    <rect key="frame" x="0.0" y="60" width="600" height="27"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to estimate." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W36-z2-LYW">
-                                                            <rect key="frame" x="254" y="6" width="93" height="15"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fa-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0av-kf-YqD">
-                                                            <rect key="frame" x="352" y="2" width="23" height="23"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.0" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstItem="W36-z2-LYW" firstAttribute="centerY" secondItem="4vT-e3-vve" secondAttribute="centerY" id="9Y7-6v-7kj"/>
-                                                        <constraint firstItem="0av-kf-YqD" firstAttribute="top" secondItem="4vT-e3-vve" secondAttribute="top" constant="2" id="BpP-jq-Met"/>
-                                                        <constraint firstAttribute="bottom" secondItem="0av-kf-YqD" secondAttribute="bottom" constant="2" id="DiZ-xc-BEY"/>
-                                                        <constraint firstItem="0av-kf-YqD" firstAttribute="leading" secondItem="W36-z2-LYW" secondAttribute="trailing" constant="5" id="EYC-uc-9hc"/>
-                                                        <constraint firstAttribute="height" constant="27" id="Nmb-pj-QBe"/>
-                                                        <constraint firstItem="W36-z2-LYW" firstAttribute="centerX" secondItem="4vT-e3-vve" secondAttribute="centerX" id="Tzj-gA-znE"/>
-                                                    </constraints>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdu-Yz-Tbi">
-                                                    <rect key="frame" x="15" y="0.0" width="83" height="60"/>
+                                                    <rect key="frame" x="60" y="0.0" width="83" height="73"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkboxDeselected" translatesAutoresizingMaskIntoConstraints="NO" id="tKx-ol-14u">
+                                                    <rect key="frame" x="15" y="21" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="tKx-ol-14u" secondAttribute="height" multiplier="1:1" id="Hcg-dw-4LI"/>
+                                                        <constraint firstAttribute="width" constant="30" id="MOv-A0-ctE"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.0" green="0.76862745098039209" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="4vT-e3-vve" firstAttribute="leading" secondItem="hQm-mR-tBg" secondAttribute="leading" id="Duh-yB-RGT"/>
+                                                <constraint firstItem="Kdu-Yz-Tbi" firstAttribute="centerY" secondItem="hQm-mR-tBg" secondAttribute="centerY" id="0Xv-0V-cWh"/>
                                                 <constraint firstItem="Kdu-Yz-Tbi" firstAttribute="top" secondItem="hQm-mR-tBg" secondAttribute="top" id="L5c-gJ-tWt"/>
-                                                <constraint firstItem="4vT-e3-vve" firstAttribute="top" secondItem="Kdu-Yz-Tbi" secondAttribute="bottom" id="W2S-eQ-maw"/>
-                                                <constraint firstAttribute="trailing" secondItem="4vT-e3-vve" secondAttribute="trailing" id="ZGU-7k-q7F"/>
-                                                <constraint firstItem="Kdu-Yz-Tbi" firstAttribute="leading" secondItem="hQm-mR-tBg" secondAttribute="leading" constant="15" id="nsn-u8-Wke"/>
-                                                <constraint firstAttribute="bottom" secondItem="4vT-e3-vve" secondAttribute="bottom" id="ugQ-pL-2E9"/>
+                                                <constraint firstItem="Kdu-Yz-Tbi" firstAttribute="leading" secondItem="tKx-ol-14u" secondAttribute="trailing" constant="15" id="P3k-2P-io4"/>
+                                                <constraint firstItem="tKx-ol-14u" firstAttribute="leading" secondItem="hQm-mR-tBg" secondAttribute="leading" constant="15" id="iRs-aC-6pK"/>
+                                                <constraint firstItem="tKx-ol-14u" firstAttribute="centerY" secondItem="hQm-mR-tBg" secondAttribute="centerY" id="wvK-tB-ZFv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addToEstimateView" destination="4vT-e3-vve" id="L3n-Kx-ggs"/>
-                                            <outlet property="arrowLabel" destination="0av-kf-YqD" id="qF4-bU-oPO"/>
+                                            <outlet property="checkboxImageView" destination="tKx-ol-14u" id="qb5-Zz-LKx"/>
                                             <outlet property="taskLabel" destination="Kdu-Yz-Tbi" id="biw-Ke-3p0"/>
                                         </connections>
                                     </tableViewCell>
@@ -94,6 +73,11 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Pick Tasks" id="etR-mb-4kf">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="lnj-Et-dLY">
+                            <connections>
+                                <action selector="didTapAdd:" destination="BYZ-38-t0r" id="tIl-Vs-Fyn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" id="qRQ-FR-gYM">
                             <connections>
                                 <action selector="didTapNext:" destination="BYZ-38-t0r" id="QqM-BV-4n7"/>
@@ -107,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1273" y="1117"/>
+            <point key="canvasLocation" x="1269" y="1137"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BcI-EG-unM">
@@ -128,4 +112,7 @@
             <point key="canvasLocation" x="608" y="1137"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkboxDeselected" width="64" height="64"/>
+    </resources>
 </document>
