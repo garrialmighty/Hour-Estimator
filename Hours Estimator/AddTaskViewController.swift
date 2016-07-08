@@ -62,7 +62,7 @@ final class AddTaskViewController: UIViewController {
 
     private let taskTextField = UITextField()
     private let addButton = UIBarButtonItem(title: "Add", style: .Plain, target: nil, action: #selector(AddTaskViewController.didTapAdd))
-    private let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: nil, action: #selector(AddTaskViewController.didTapAdd))
+    private let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: nil, action: #selector(AddTaskViewController.didTapDone))
     
     weak var delegate: AddTaskViewControllerDelegate?
     
@@ -81,11 +81,7 @@ final class AddTaskViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = "Add Task"
         self.view.backgroundColor = .whiteColor()
-        
-        self.addButton.target = self
-        self.navigationItem.rightBarButtonItem = self.addButton
         
         taskTextField.delegate = self
         taskTextField.borderStyle = .RoundedRect
@@ -106,9 +102,10 @@ final class AddTaskViewController: UIViewController {
         // add bar button items
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
         
+        addButton.target = self
+        addButton.enabled = false
         doneButton.target = self
-        doneButton.enabled = false
-        toolbar.items = [flexibleSpace, doneButton]
+        toolbar.items = [doneButton, flexibleSpace, addButton]
         
         // set toolbar as input accessory view
         taskTextField.inputAccessoryView = toolbar
@@ -129,12 +126,18 @@ final class AddTaskViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Selector
+    @objc private func didTapDone() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @objc private func didTapAdd() {
         if let taskName = taskTextField.text {
             let task = Task()
             task.name = taskName
             RealmUtility.sharedUtility.save(task)
             
+            taskTextField.text = ""
             self.delegate?.addTaskViewController(self, didAddTask: task)
         }
     }
@@ -150,7 +153,7 @@ extension AddTaskViewController: UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if var textFieldText = textField.text {
             textFieldText.appendContentsOf(string)
-            doneButton.enabled = textFieldText.characters.count > 0
+            addButton.enabled = textFieldText.characters.count > 0
         }
         
         return string != "\n"
