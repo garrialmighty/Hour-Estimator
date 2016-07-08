@@ -64,27 +64,12 @@ extension TasksViewController: UITableViewDataSource {
             let tasks = self.viewModel.tasks[indexPath.section].values.first
             else { return TaskTableViewCell() }
         
+        cell.delegate = self
         cell.taskLabel.text = tasks[indexPath.item].name
         
         // add delete option for User Defined Tasks
         if let sectionTitle = self.viewModel.tasks[indexPath.section].keys.first where sectionTitle == "User Defined" {
             let delete = MGSwipeButton(title: "Delete", backgroundColor: .redColor())
-            
-            // implement delete functionality
-            delete.callback = { _ in
-                RealmUtility.sharedUtility.deleteTask(tasks[indexPath.item])
-                
-                // remove task
-                let sectionKey = self.viewModel.keyForSection(indexPath.section)
-                self.viewModel.tasks[indexPath.section][sectionKey]?.removeAtIndex(indexPath.item)
-                                
-                tableView.beginUpdates()
-                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                tableView.endUpdates()
-                
-                return true
-            }
-            
             cell.rightButtons = [delete]
         }
         
@@ -138,5 +123,32 @@ extension TasksViewController: AddTaskViewControllerDelegate {
         }
         
         self.tableView.endUpdates()
+    }
+}
+
+// MARK: - MGSwipeTableCellDelegate
+extension TasksViewController: MGSwipeTableCellDelegate {
+    func swipeTableCell(cell: MGSwipeTableCell!, tappedButtonAtIndex index: Int, direction: MGSwipeDirection, fromExpansion: Bool) -> Bool {
+        guard let indexPath = self.tableView.indexPathForCell(cell),
+            let tasks = self.viewModel.tasks[indexPath.section].values.first
+            else { return false }
+        
+        RealmUtility.sharedUtility.deleteTask(tasks[indexPath.item])
+        
+        // remove task
+        let sectionKey = self.viewModel.keyForSection(indexPath.section)
+        tableView.beginUpdates()
+        if self.viewModel.tasks[indexPath.section][sectionKey]?.count == 1 {
+            print("deleting \(indexPath.section) \(indexPath.item)")
+            self.viewModel.tasks.removeAtIndex(indexPath.section)
+            tableView.deleteSections(NSIndexSet(index: 3), withRowAnimation: .Automatic)
+        } else {
+            print("deleting \(indexPath.section) \(indexPath.item)")
+            self.viewModel.tasks[indexPath.section][sectionKey]?.removeAtIndex(indexPath.item)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+        tableView.endUpdates()
+        
+        return true
     }
 }
