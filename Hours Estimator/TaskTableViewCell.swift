@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 import FontAwesome_swift
 
-final class TaskTableViewCell: UITableViewCell {
+final class TaskTableViewCell: MGSwipeTableCell {
 
     @IBOutlet weak var checkboxImageView: UIImageView!
     @IBOutlet weak var taskLabel: UILabel!
