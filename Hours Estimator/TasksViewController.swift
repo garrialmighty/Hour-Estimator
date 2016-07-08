@@ -122,3 +122,21 @@ extension TasksViewController: TotalViewControllerDelegate {
     }
 }
 
+// MARK: - AddTaskViewControllerDelegate
+extension TasksViewController: AddTaskViewControllerDelegate {
+    func addTaskViewController(viewController: AddTaskViewController, didAddTask task: Task) {
+        self.tableView.beginUpdates()
+        
+        let userDefinedSection = 3
+        let sectionKey = self.viewModel.keyForSection(userDefinedSection)
+        if self.viewModel.tasks.count > 3 {
+            self.viewModel.tasks[userDefinedSection][sectionKey]?.append(task)
+            self.tableView.reloadSections(NSIndexSet(index: userDefinedSection), withRowAnimation: .Automatic)
+        } else {
+            self.viewModel.tasks.append(["User Defined": [task]])
+            self.tableView.insertSections(NSIndexSet(index: userDefinedSection), withRowAnimation: .Automatic)
+        }
+        
+        self.tableView.endUpdates()
+    }
+}
