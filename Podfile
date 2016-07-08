@@ -7,4 +7,6 @@ use_frameworks!
 target 'Hours Estimator' do
   pod 'FontAwesome.swift'
   pod 'TPKeyboardAvoiding'
+  pod 'RealmSwift'
+  pod 'MGSwipeTableCell'
 end
