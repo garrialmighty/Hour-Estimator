@@ -7,7 +7,29 @@
 //
 
 import UIKit
+import RealmSwift
 
-class RealmUtility: NSObject {
-
+final class RealmUtility: NSObject {
+    
+    static let sharedUtility = RealmUtility()
+    
+    func fetchAllTasks() -> [Task] {
+        let realm = try! Realm()
+        print(realm.objects(Task))
+        return realm.objects(Task).map{ $0 }
+    }
+    
+    func save(task: Task) {
+        let realm = try! Realm()
+        try! realm.write({ 
+            realm.add(task)
+        })
+    }
+    
+    func deleteTask(task: Task) {
+        let realm = try! Realm()
+        try! realm.write({ 
+            realm.delete(task)
+        })
+    }
 }
