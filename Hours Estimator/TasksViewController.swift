@@ -40,6 +40,12 @@ final class TasksViewController: UIViewController {
             self.navigationController?.pushViewController(estimateViewController, animated: true)
         }
     }
+    
+    @IBAction func didTapAdd(sender: AnyObject) {
+        let addTaskViewController = AddTaskViewController()
+        addTaskViewController.delegate = self
+        self.presentViewController(AddTaskViewController(), animated: true, completion: nil)
+    }
 }
 
 // MARK: - UITableViewDataSource
