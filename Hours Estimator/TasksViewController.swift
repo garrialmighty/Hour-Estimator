@@ -44,7 +44,7 @@ final class TasksViewController: UIViewController {
     @IBAction func didTapAdd(sender: AnyObject) {
         let addTaskViewController = AddTaskViewController()
         addTaskViewController.delegate = self
-        self.presentViewController(AddTaskViewController(), animated: true, completion: nil)
+        self.presentViewController(addTaskViewController, animated: true, completion: nil)
     }
 }
 
